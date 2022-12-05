@@ -1,0 +1,44 @@
+.main-content {width:70%; margin:auto;}
+.btn-info {margin:auto; text-align:center; margin-right: 2em;}
+.main-content p {margin-top: 1.5em; margin-bottom:1.5em; font-size: 1.2em;}
+
+.user-font {color: #E4572E}
+.user-card {font-size: 2.5em; text-align:center; margin-top: 1.5em;
+    font-family: 'Nunito', sans-serif; font-weight:400; 
+}
+.usr-card-text {text-align:center; font-size: 1.4em; margin-top:1.5em; margin-bottom:1.5em;}
+.status-text {margin-left: 0.8em;}
+/*.card {margin-top: 2em; background-color: #FFFBBD;} */
+.status-card {
+    border: 0 !important;
+    margin-top: 2em;  /* fallback for old browsers */
+}
+.next-card{
+    padding:2em;
+}
+.next-card-title{
+    font-size:2em;
+}
+.next-card-text{
+    font-size: 1.2em; line-height: 1.8em; margin-left: 3em; margin-right: 3em;
+}
+.possibility-border-top {
+    width:50%;
+    margin-top: 4em;
+    height: 2em;
+    border-top: solid 2px #BF4E30;
+    border-left: solid 2px #BF4E30;
+}
+.possibility-border-bottom {
+    float:right;
+    width:50%;
+    margin-bottom: 4em;
+    height: 2em;
+    border-bottom: solid 2px #BF4E30;
+    border-right: solid 2px #BF4E30;
+}
+.next-header {
+    font-size: 1.8em; margin-top: 0.5em; margin-left: 2em; margin-bottom: 1.5em; margin-right: 2em;
+}
+.possiblity-header {margin-top: 1em; font-size: 1.8em; margin-left: 2em; margin-right: 2em; margin-bottom: 1.5em;}
+.card-btn {margin-top: 2em;}

@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+        <h3 *ngIf="card.pledgeList && card.pledgeList.length > 0">Currently Lending</h3>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let pledge of card.pledgeList">
+        <div class="card status-card">
+            <div class="card-body">
+                <div>Loan Amount: ${{pledge.fund_amount}}</div>
+                <div>APR: {{pledge.fund_apr}}</div>
+                <div>Maturity Date: 01/22/2023</div>
+                <div>Interest Earned YTD: {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</div>
+                <div>Lifetime Interest Earned: {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</div> 
+                <div class='lend-button'><button class="btn btn-secondary">CLAIM {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</button></div>
+            </div>
+        </div>
+    </div>
+</div>

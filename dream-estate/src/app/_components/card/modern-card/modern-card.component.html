@@ -1,0 +1,45 @@
+<div class="modal" id="appModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Pledge to lend to Application #: {{card.applicationid}}</h4>
+        </div>
+        <div class="modal-body">
+            <p><strong>How it works:</strong> Your pledge will be held in a smart contract until the offering expiration date. 
+                If the offering is successfully funded, your loan will immediately begin according to the 
+                selected terms. If the offering is not successfully funded, your full pledge will be released 
+                back to your wallet.</p>
+            <form #pledgeForm="ngForm">
+                <div class="mb-3 mt-3">
+                    <label for="fund_amount" class="form-label">Loan Amount (min $100):</label>
+                    <input type="number" step="100" class="form-control" id="fund_amount" required placeholder="$ Amount" name="fund_amount"
+                    [(ngModel)]="pledge.fund_amount">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="fund_duration" class="form-label">Loan Term:</label>
+                    <select class="form-control" id="fund_duration" placeholder="Term" name="fund_duration" [(ngModel)]="pledge.fund_duration">
+                        <option value="1" selected>1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="3">3 Years</option>
+                        <option value="4">4 Years</option>
+                        <option value="5">5 Years</option>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="fund_apr" class="form-label">APY:</label>
+                    <input type="number" class="form-control" id="fund_apr" [(ngModel)]="pledge.fund_apr"
+                    placeholder="APR" name="fund_apr" disabled value="{{0.25+card.application_funding.risk_score}}">
+                </div>
+                <button class="btn btn-success" (click)="submitForm(card.applicationid)">SUBMIT PLEDGE</button>
+            </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+      </div>
+    </div>
+</div>

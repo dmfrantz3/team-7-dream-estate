@@ -1,0 +1,14 @@
+.progress-bar {height: 20px;}
+.card {background-color: #E5EAFA;}
+.progress {
+    --bs-progress-bg: #fff !important;
+}
+.card-title{
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+    color: #32161F;
+    border-bottom: dashed 2px #32161F;
+}
+.lend-button{float:right; margin:1em;}
+h3 {margin-top: 2em;}

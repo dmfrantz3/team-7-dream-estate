@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-12" *ngIf="card">
+        <div class="card status-card">
+            <div class="card-body">
+            <h4 class="card-title user-card">Welcome Back, <span class='user-font'>{{card.firstname}}</span>!</h4>
+            <p class="card-text usr-card-text">
+                <app-svg [value]="successIcon"></app-svg>
+                <span class='status-text'>Application Status: SUBMITTED</span>
+            </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12" *ngIf="card">
+        <div class="possibility-border-top"></div>
+            <h4 class="next-header">
+                What's Next?
+            </h4>
+            <p class="next-card-text">
+            Our team is reviewing your application. We 
+            are crunching the numbers to find an affordable monthly payment and loan amount consistent with your 
+            rental history. If approved, that means we think you are a good fit for our investors. Approved applications get 
+            placed in front of investors looking to fund home purchases like yours!
+            </p>
+        <div class="possibility-border-bottom"></div>
+    </div>
+    <div class="col-12" *ngIf="card">
+        <h4 class="possiblity-header">
+            While you wait...
+        </h4>
+        <p class="next-card-text">
+            Based on the profiles of successfully funded applicants with similar income and rental history, 
+            you might be able to afford these homes in your area.
+        </p>
+    </div>
+</div>

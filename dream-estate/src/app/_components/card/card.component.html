@@ -1,0 +1,12 @@
+  <div class="row">
+    <div class="col-12 col-md-6" *ngFor="let property of data">
+      <div class="card" *ngIf="property.address">
+          <img class="card-img-top" src="{{property.propfeatureimg}}" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">{{property.address.addr1}}</h4>
+            <p class="card-text">4 br 2 bath, 1200 sqft</p>
+            <a href="#" class="btn btn-info">Home Details</a>
+          </div>
+      </div>
+    </div>
+  </div>
