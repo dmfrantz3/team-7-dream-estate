@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, Table, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from base import Base
 
@@ -9,6 +9,8 @@ class fin_user(Base):
     firstname = Column(String)
     lastname = Column(String)
     password = Column(String)
+    access_token = Column(String)
+    token_expiration = Column(DateTime)
     #roles = relationship("fin_user_has_role")
 
 class fin_user_has_role(Base):

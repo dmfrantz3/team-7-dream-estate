@@ -1,16 +1,20 @@
-<div class="row">
+<div class="row" *ngIf="card">
     <div class="col-12">
-        <h3 *ngIf="card.pledgeList && card.pledgeList.length > 0">Currently Lending</h3>
+        <h3>Locked Pledges</h3>
+        <p *ngIf="card.pledgeList && card.pledgeList.length > 0">These are your current pledges. If fully funded by the expiration date, 
+            these funds will immediately go to the applicant and your will start accruing daily interest according to the selected 
+            terms.
+        </p>
+        <p *ngIf="!card.pledgeList || card.pledgeList.length == 0">You do not have any lendings or pledges. View 
+            our available application offerings below to get started.
+        </p>
     </div>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let pledge of card.pledgeList">
         <div class="card status-card">
             <div class="card-body">
                 <div>Loan Amount: ${{pledge.fund_amount}}</div>
                 <div>APR: {{pledge.fund_apr}}</div>
-                <div>Maturity Date: 01/22/2023</div>
-                <div>Interest Earned YTD: {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</div>
-                <div>Lifetime Interest Earned: {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</div> 
-                <div class='lend-button'><button class="btn btn-secondary">CLAIM {{(pledge.fund_amount * pledge.fund_apr)/(pledge.fund_duration*365) | currency}}</button></div>
+                <div>Maturity Date: {{fund_date(pledge.fund_duration)}}</div>
             </div>
         </div>
     </div>

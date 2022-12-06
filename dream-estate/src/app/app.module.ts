@@ -24,6 +24,10 @@ import { ApplyForMortgageComponent } from './apply-for-mortgage/apply-for-mortga
 import { FundingApplicationComponent } from './apply-for-mortgage/funding-application/funding-application.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { CreateAccountFormComponent } from './_components/forms/create-account-form/create-account-form.component';
+import { StartLendingComponent } from './start-lending/start-lending.component';
+import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { CurrentLoanCardComponent } from './_components/card/current-loan-card/current-loan-card.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { CreateAccountFormComponent } from './_components/forms/create-account-f
     ApplyForMortgageComponent,
     FundingApplicationComponent,
     CreateAccountComponent,
-    CreateAccountFormComponent
+    CreateAccountFormComponent,
+    StartLendingComponent,
+    LoginFormComponent,
+    LoginPageComponent,
+    CurrentLoanCardComponent
   ],
   imports: [
     BrowserModule,

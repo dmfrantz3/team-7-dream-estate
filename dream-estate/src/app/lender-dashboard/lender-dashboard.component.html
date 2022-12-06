@@ -1,4 +1,5 @@
 <div class="container">
+    <app-current-loan-card [card]="$user | async"></app-current-loan-card>
     <app-loan-overview-card [card]="$user | async"></app-loan-overview-card>
     <app-welcome-card [card]="data"></app-welcome-card>
     <app-lender-card [cards]="$applications | async" [user]="$user | async"></app-lender-card>

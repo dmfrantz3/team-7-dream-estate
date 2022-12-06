@@ -4,8 +4,9 @@
         <div class="col-12">
             <div class="main-content">
                 <h3>How can DreamEstate help you?</h3>
-                <p>DreamEstate helps renters purchase their very first home and investors earn APY on their own terms 
-                starting with as little as $100. Let's start by getting you on the right path!</p>
+                <p>DreamEstate helps renters purchase their very first home while also 
+                helping investors earn APY on their own terms starting with as little as $100. 
+                Let's start by getting you on the right path!</p>
                 <a class='btn btn-lg btn-info' href="#owner">I'm interested in Owning a Home.</a>
                 <a class='btn btn-lg btn-info' href="#lender">I'm interested in Lending.</a>  
             </div>
@@ -13,35 +14,6 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="possibility-border-top"></div>
-                <h4 class="next-header" id="owner">
-                    DreamEstate for Future Home Owners
-                </h4>
-                <p class="next-card-text">
-                    If you thought home ownership was out of reach, think again. We look beyond credit score and down-payment 
-                    and focus more on what you are currently paying. Have you been unable to save up for your first home 
-                    purchase because you have been spending years making your increasing rent payment? With DreamEstate we help 
-                    you turn your current rental payment into a payment toward ownership of a house of your own.<br /><br />
-                    <button class='btn btn-lg btn-info' [routerLink]="['/create-account', 1]">Let's Get Started!</button>
-                </p> 
-            <div class="possibility-border-bottom"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="possibility-border-top"></div>
-                <h4 class="next-header" id="lender">
-                    DreamEstate for Lenders
-                </h4>
-                <p class="next-card-text">
-                    Would you like to earn passive income on your own terms starting with as little as $100? Plus, you can 
-                    feel good while doing it! Your money will help a deserving applicant purchase their very first home. 
-                    <br /><br />
-                    <button class='btn btn-lg btn-info' [routerLink]="['/create-account', 2]">Let's Get Started!</button>
-                </p> 
-            <div class="possibility-border-bottom"></div>
-        </div>
-    </div>
+    <app-welcome-card [card]="ownerCard"></app-welcome-card>
+    <app-welcome-card [card]="lenderCard"></app-welcome-card>
 </div>

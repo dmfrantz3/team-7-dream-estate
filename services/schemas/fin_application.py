@@ -59,34 +59,38 @@ class PY_fin_role(BaseModel):
         orm_mode = True
 class PY_fin_user(BaseModel):
     userid: Optional[int]
-    firstname: str
-    lastname: str
-    email: str
+    firstname: Optional[str]
+    lastname: Optional[str]
+    email: Optional[str]
     password: Optional[str]
+    access_token: Optional[str]
+    token_expiration: Optional[datetime]
+    token_expiration_formatted: Optional[str]
     roles: Optional[List[PY_fin_role]]
     pledgeList: Optional[List[PY_fin_application_pledge]]
+    errorMessage: Optional[str]
     class Config: 
         orm_mode = True
 class PY_fin_user_application(BaseModel):
     applicationid: Optional[int]
     userid: int
     user: Optional[PY_fin_user]
-    personal_statement: str
-    eduid: int
+    personal_statement: Optional[str]
+    eduid: Optional[int]
     education_level: Optional[str]
     edu_area: Optional[str]
-    employment_status: str
-    yearly_income: float
-    empid: int
+    employment_status: Optional[str]
+    yearly_income: Optional[float]
+    empid: Optional[int]
     employment_type: Optional[str]
     employment_industry: Optional[str]
-    employment_duration: int
+    employment_duration: Optional[int]
     employment_contact_name: Optional[str]
     employment_contact_phone: Optional[str]
-    rental_late_payments: str
-    rental_history_duration: int
-    rental_payment_amount: float
-    rental_mail_address: str
+    rental_late_payments: Optional[str]
+    rental_history_duration: Optional[int]
+    rental_payment_amount: Optional[float]
+    rental_mail_address: Optional[str]
     rental_contact_name: Optional[str]
     rental_contact_phone: Optional[str]
     credit_score: Optional[int]

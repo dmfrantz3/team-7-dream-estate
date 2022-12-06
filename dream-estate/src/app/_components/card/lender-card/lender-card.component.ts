@@ -13,7 +13,7 @@ export class LenderCardComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(): void {
-    this.termOpts = Array(30).map((x,i)=>i);
+    
   }
 
 }

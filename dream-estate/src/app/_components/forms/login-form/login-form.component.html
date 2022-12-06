@@ -6,16 +6,6 @@
             </div>
             <form>
                 <div class="mb-3 mt-3">
-                    <label for="firstname" class="form-label">First Name:</label>
-                    <input type="text" class="form-control" id="firstname" required placeholder="First Name" name="firstname"
-                    [(ngModel)]="user.firstname" required>
-                </div>
-                <div class="mb-3 mt-3">
-                    <label for="lastname" class="form-label">Last Name:</label>
-                    <input type="text" class="form-control" id="lastname" required placeholder="Last Name" name="lastname"
-                    [(ngModel)]="user.lastname" required>
-                </div>
-                <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" class="form-control" id="email" required placeholder="Email" name="email"
                     [(ngModel)]="user.email" required>
@@ -25,7 +15,7 @@
                     <input type="password" class="form-control" id="password" required placeholder="Password" name="password"
                     [(ngModel)]="user.password" required>
                 </div>
-                <button class="btn btn-info" (click)="submitForm()">Create Account</button>
+                <button class="btn btn-info" (click)="submitForm()">Login</button>
             </form>
         </div>
     </div>

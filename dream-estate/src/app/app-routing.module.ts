@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -7,6 +7,9 @@ import { LenderDashboardComponent } from './lender-dashboard/lender-dashboard.co
 import { ApplyForMortgageComponent } from './apply-for-mortgage/apply-for-mortgage.component';
 import { FundingApplicationComponent } from './apply-for-mortgage/funding-application/funding-application.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { StartLendingComponent } from './start-lending/start-lending.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AuthGuard } from './_services/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'applicant-dashboard',
-    component: ApplicantDashboardComponent
+    component: ApplicantDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'owner-dashboard',
@@ -24,7 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'lender-dashboard',
-    component: LenderDashboardComponent
+    component: LenderDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'apply-for-funding',
@@ -37,6 +42,14 @@ const routes: Routes = [
   {
     path: 'create-account/:role_id',
     component: CreateAccountComponent
+  },
+  {
+    path: 'start-lending',
+    component: StartLendingComponent
+  },
+  {
+    path: 'login-page',
+    component: LoginPageComponent
   }
   
 ];

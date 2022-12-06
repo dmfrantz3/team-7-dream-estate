@@ -11,6 +11,7 @@ export class ModernCardComponent implements OnInit {
   @Input() card: any;
   @Input() user: any;
   pledge: Pledge = {applicationid: 1, userid: 2, fund_amount: 100, fund_apr: 6.07, fund_duration: 1};
+  cardDisplay:any;
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
@@ -20,8 +21,11 @@ export class ModernCardComponent implements OnInit {
     this.pledge.applicationid = applicationid;
     this.applicationService.postPledge(this.pledge).subscribe(data =>{
       this.pledge = data;
-      console.log("MADE A PLEDGE: "+this.pledge);
+      this.cardDisplay = "off";
     });
+  }
+  calculateApy(){
+    this.pledge.fund_apr = Math.round(((0.016 * this.pledge.fund_duration) + 0.25 + this.card.application_funding.risk_score) * 100) / 100;
   }
 
 }

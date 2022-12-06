@@ -17,9 +17,9 @@
                     <h5><span [ngClass]="card.application_funding.risk_category == 'LOW' ? 'badge bg-success' : card.application_funding.risk_category == 'VERY LOW' ? 'badge bg-success' : card.application_funding.risk_category == 'MODERATE' ? 'badge bg-caution' : 'badge bg-danger'">
                     Risk Score: {{card.application_funding.risk_score}} ({{card.application_funding.risk_category}})</span></h5>
                 </div>
-                <div>Rates: {{0.25+card.application_funding.risk_score}}% APR {{0.75+card.application_funding.risk_score}}% APR</div>
+                <div>Rates: {{0.25+card.application_funding.risk_score}}% - {{0.75+card.application_funding.risk_score}}% APR</div>
                 <div>Terms: 1 Year - 30 Years</div>
-                <div>Offering Expires on: {{card.application_funding.funding_end}}</div>
+                <div>Offering Expires on: {{card.application_funding.formatted_funding_end}}</div>
                 <div class='lend-button'><button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#appModal">LEND TO APPLICANT</button></div>
             </div>
             <app-modern-card [card]="card" [user]="user"></app-modern-card>

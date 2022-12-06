@@ -24,7 +24,8 @@ async def submit_applications_by_status(statusid: int, session: Session=Depends(
 async def get_applications_needing_funding(session: Session=Depends(get_db)):
     applications = session.query(fin_user_application).filter(fin_user_application.appstatusid==4).all()
     for app in applications:
-        app.application_funding = session.query(func.to_char(fin_application_funding.funding_end, '%Y-%m-%d').label("formatted_funding_end"), fin_application_funding).filter(fin_application_funding.application_id==app.applicationid).first()
+        app.application_funding = session.query(fin_application_funding).filter(fin_application_funding.application_id==app.applicationid).first()
+        #app.application_funding.risk_category = "TEST"
         if (app.application_funding.risk_score < 1.2):
             app.application_funding.risk_category = "VERY LOW"
         elif(app.application_funding.risk_score < 3):
@@ -35,9 +36,10 @@ async def get_applications_needing_funding(session: Session=Depends(get_db)):
             app.application_funding.risk_category = "HIGH"
         else:
             app.application_funding.risk_category = "VERY HIGH"
+        app.application_funding.formatted_funding_end = app.application_funding.funding_end.strftime("%m/%d/%Y, %H:%M:%S")
         app.application_pledge_list = session.query(fin_application_pledge).filter(fin_application_pledge.applicationid==app.applicationid).all()
         app.application_currently_funded = session.query(func.sum(fin_application_pledge.fund_amount).label("application_currently_funded")).filter(fin_application_pledge.applicationid==app.applicationid).first()["application_currently_funded"]
-        app.pcnt_funded = str((app.application_currently_funded / app.application_funding.funding_required) * 100)+"%"
+        app.pcnt_funded = str(round((app.application_currently_funded / app.application_funding.funding_required) * 100,2))+"%"
     return applications
 
 @router.put("/application/{statusid}/{applicationid}", tags=["Application"], response_model=PY_fin_user_application)

@@ -1,0 +1,21 @@
+<div class="row" *ngIf="card">
+    <div class="col-12">
+        <h3>Active Loans</h3>
+        <p *ngIf="card.loanList && card.loanList.length > 0">These are all of your active loans with DreamEstate. 
+        See your lifetime accrual and claim interest daily!
+        </p>
+        <p *ngIf="!card.loanList || card.pledgeList.length == 0">You do not have any active loans. Successfully funded pledges 
+        will convert to active loans on their pledge expiration date. Once pledges are active, you will immediately begin 
+        accruing the agreed upon interest. Check your dashboard to claim daily interest and view lifetime accrual.
+        </p>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let loan of card.loanList">
+        <div class="card status-card">
+            <div class="card-body">
+                <div>Loan Amount: ${{loan.fund_amount}}</div>
+                <div>APR: {{loan.fund_apr}}</div>
+                <div>Maturity Date: {{loan.fund_duration}}</div>
+            </div>
+        </div>
+    </div>
+</div>

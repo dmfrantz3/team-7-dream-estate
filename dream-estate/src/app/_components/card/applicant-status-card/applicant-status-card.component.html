@@ -1,11 +1,14 @@
 <div class="row">
-    <div class="col-12" *ngIf="card">
+    <div class="col-12" *ngIf="application">
         <div class="card status-card">
             <div class="card-body">
             <h4 class="card-title user-card">Welcome Back, <span class='user-font'>{{card.firstname}}</span>!</h4>
             <p class="card-text usr-card-text">
-                <app-svg [value]="successIcon"></app-svg>
-                <span class='status-text'>Application Status: SUBMITTED</span>
+                <app-svg [value]="getIcon(application.appstatusid)"></app-svg>
+                <span class='status-text'>Application Status: 
+                    <span *ngIf="application.appstatusid == 1"><a href="/funding-application">{{getStatusText(application.appstatusid)}}</a></span>
+                    <span *ngIf="application.appstatusid != 1">{{getStatusText(application.appstatusid)}}</span>
+                </span>
             </p>
             </div>
         </div>

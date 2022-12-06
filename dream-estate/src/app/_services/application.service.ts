@@ -21,6 +21,10 @@ export class ApplicationService {
     let url = environment.apiBase+"/pledge";
     return this.http.post<Pledge>(url, pledge, this.httpOptions);
   }
+  postApplication(application: Application): Observable<Application>{
+    let url = environment.apiBase+"/application";
+    return this.http.post<Pledge>(url, application, this.httpOptions);
+  }
   constructor(private http: HttpClient){}
 }
 

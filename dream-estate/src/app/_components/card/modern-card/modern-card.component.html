@@ -11,7 +11,7 @@
                 If the offering is successfully funded, your loan will immediately begin according to the 
                 selected terms. If the offering is not successfully funded, your full pledge will be released 
                 back to your wallet.</p>
-            <form #pledgeForm="ngForm">
+            <form #pledgeForm="ngForm" *ngIf="!cardDisplay">
                 <div class="mb-3 mt-3">
                     <label for="fund_amount" class="form-label">Loan Amount (min $100):</label>
                     <input type="number" step="100" class="form-control" id="fund_amount" required placeholder="$ Amount" name="fund_amount"
@@ -19,12 +19,8 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="fund_duration" class="form-label">Loan Term:</label>
-                    <select class="form-control" id="fund_duration" placeholder="Term" name="fund_duration" [(ngModel)]="pledge.fund_duration">
-                        <option value="1" selected>1 Year</option>
-                        <option value="2">2 Years</option>
-                        <option value="3">3 Years</option>
-                        <option value="4">4 Years</option>
-                        <option value="5">5 Years</option>
+                    <select (change)="calculateApy()" class="form-control" id="fund_duration" placeholder="Term" name="fund_duration" [(ngModel)]="pledge.fund_duration">
+                        <option *ngFor="let item of [].constructor(30); let i = index" value="{{i+1}}" selected>{{i+1}} Year</option>
                     </select>
                 </div>
                 <div class="mb-3 mt-3">
@@ -34,6 +30,9 @@
                 </div>
                 <button class="btn btn-success" (click)="submitForm(card.applicationid)">SUBMIT PLEDGE</button>
             </form>
+            <div class="alert alert-success" *ngIf="cardDisplay">
+                <strong>Success!</strong> Your pledge has been successfully recorded.
+            </div>
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">

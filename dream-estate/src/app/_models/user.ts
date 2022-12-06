@@ -8,4 +8,6 @@ export interface User {
     email?: string;
     password?: string;
     pledgeList?: Pledge[];
+    errorMessage?: string;
+    access_token?: string;
 }

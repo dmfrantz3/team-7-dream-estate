@@ -5,4 +5,5 @@ export interface Funding{
     funding_required: number;
     funding_start: string;
     funding_end: string;
+    formatted_funding_end?: string;
 }
