@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12" *ngIf="application">
+    <div class="col-12" *ngIf="application && card">
         <div class="card status-card">
             <div class="card-body">
             <h4 class="card-title user-card">Welcome Back, <span class='user-font'>{{card.firstname}}</span>!</h4>
@@ -13,16 +13,13 @@
             </div>
         </div>
     </div>
-    <div class="col-12" *ngIf="card">
+    <div class="col-12" *ngIf="application">
         <div class="possibility-border-top"></div>
             <h4 class="next-header">
                 What's Next?
             </h4>
             <p class="next-card-text">
-            Our team is reviewing your application. We 
-            are crunching the numbers to find an affordable monthly payment and loan amount consistent with your 
-            rental history. If approved, that means we think you are a good fit for our investors. Approved applications get 
-            placed in front of investors looking to fund home purchases like yours!
+                {{getNextSteps(application.appstatusid)}}
             </p>
         <div class="possibility-border-bottom"></div>
     </div>

@@ -33,5 +33,6 @@ export interface Application{
     application_pledge_list?: Pledge[];
     application_currently_funded?: number;
     pcnt_funded?: string;
+    errorMessage?: string;
 }
     

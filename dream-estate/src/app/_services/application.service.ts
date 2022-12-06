@@ -23,7 +23,11 @@ export class ApplicationService {
   }
   postApplication(application: Application): Observable<Application>{
     let url = environment.apiBase+"/application";
-    return this.http.post<Pledge>(url, application, this.httpOptions);
+    return this.http.post<Application>(url, application, this.httpOptions);
+  }
+  updateApplication(application: Application): Observable<Application>{
+    let url = environment.apiBase+"/application";
+    return this.http.put<Application>(url, application, this.httpOptions);
   }
   constructor(private http: HttpClient){}
 }

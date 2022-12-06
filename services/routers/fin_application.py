@@ -52,6 +52,24 @@ async def update_application_status(statusid:int, applicationid, session: Sessio
     session.commit()
     return application
 
+@router.put("/application", tags=["Application"], response_model=PY_fin_user_application)
+async def update_application_status(app:PY_fin_user_application, session: Session=Depends(get_db)):
+    application = session.query(fin_user_application).filter(fin_user_application.applicationid==app.applicationid).first()
+    application.appstatusid = app.appstatusid
+    application.personal_statement = app.personal_statement
+    application.employment_status = app.employment_status
+    application.employment_industry = app.employment_industry
+    application.employment_duration = app.employment_duration
+    application.yearly_income = app.yearly_income
+    application.rental_history_duration = app.rental_history_duration
+    application.rental_payment_amount = app.rental_payment_amount
+    application.rental_late_payments = app.rental_late_payments
+    status_history = fin_application_status_history(applicationid=app.applicationid, appstatusid=app.appstatusid,
+    status_date=func.now())
+    session.add(status_history)
+    session.commit()
+    return application
+
 @router.post("/pledge",tags=["Application"], response_model=PY_fin_application_pledge)
 async def submit_application(pledge: PY_fin_application_pledge, session: Session=Depends(get_db)):
     new_pledge = fin_application_pledge(applicationid=pledge.applicationid, userid=pledge.userid, fund_amount=pledge.fund_amount,

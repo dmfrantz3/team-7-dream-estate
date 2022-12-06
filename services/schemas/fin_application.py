@@ -103,6 +103,7 @@ class PY_fin_user_application(BaseModel):
     application_currently_funded: Optional[float]
     pcnt_funded: Optional[str]
     status_history: Optional[List[PY_fin_application_status_history]]
+    errorMessage: Optional[str]
     class Config: 
         orm_mode = True
 

@@ -26,7 +26,14 @@ export class LenderDashboardComponent implements OnInit {
         this.authService.user = data;
       });
     } */
-    this.$user = this.authService.$auth_user;
+    if (!this.authService.user)
+    {
+      this.$user = this.authService.$auth_user;
+    }
+    else if (this.authService.user.email){
+      this.$user = this.userService.getUser(this.authService.user.email);
+    }
+    
     /*this.$user = this.userService.getUser(this.username); */
     this.$applications = this.applicationService.getNeedFunding();
     this.data = {title: "Available Offerings", 

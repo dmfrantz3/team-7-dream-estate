@@ -28,6 +28,7 @@ import { StartLendingComponent } from './start-lending/start-lending.component';
 import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CurrentLoanCardComponent } from './_components/card/current-loan-card/current-loan-card.component';
+import { ApplicationFormComponent } from './_components/forms/application-form/application-form.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CurrentLoanCardComponent } from './_components/card/current-loan-card/c
     StartLendingComponent,
     LoginFormComponent,
     LoginPageComponent,
-    CurrentLoanCardComponent
+    CurrentLoanCardComponent,
+    ApplicationFormComponent
   ],
   imports: [
     BrowserModule,

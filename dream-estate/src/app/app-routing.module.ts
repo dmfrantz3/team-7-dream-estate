@@ -37,7 +37,8 @@ const routes: Routes = [
   },
   {
     path: 'funding-application',
-    component: FundingApplicationComponent
+    component: FundingApplicationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-account/:role_id',

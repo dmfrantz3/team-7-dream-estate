@@ -22,12 +22,20 @@ export class ApplicantDashboardComponent implements OnInit {
   constructor(private userService: UserService,private propertyService: PropertyService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    //get user info for applicant demo
-    //this.$user = this.userService.getUser(this.username);
-    this.$user = this.authService.$auth_user;
-    this.$user.subscribe(user =>{
-      this.$application = this.userService.getUserApplication(user);
-    })
+    if (!this.authService.user)
+    {
+      this.$user = this.authService.$auth_user;
+      this.$user.subscribe(user =>{
+        this.$application = this.userService.getUserApplication(user);
+      })
+    }
+    else if (this.authService.user.email){
+      this.$user = this.userService.getUser(this.authService.user.email);
+      this.$user.subscribe(user =>{
+        this.$application = this.userService.getUserApplication(user);
+      })
+    }
+      
     this.$properties = this.propertyService.getPropertyList();
   }
 

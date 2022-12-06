@@ -1,0 +1,65 @@
+<div class="container" *ngIf="card">
+    <div class="row">
+        <div class="col-12 form-row">
+            <br /><br />
+            <h4 class="modal-title">Fill out this form with as much detail as possible.</h4>
+            <div class="alert alert-danger" *ngIf="application.errorMessage">
+                <strong>Something went wrong!</strong> {{application.errorMessage}}
+            </div>
+            <form>
+                <div class="mb-3 mt-3">
+                    <label for="applicationid" class="form-label">Application ID:</label>
+                    <input type="text" class="form-control" readonly
+                    [(ngModel)]="application.applicationid" name="applicationid" disabled>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="personal_statement" class="form-label">Why should we invest in you? (500 words or less):</label>
+                    <textarea class="form-control" id="personal_statement" required placeholder="Enter your personal statement." 
+                    name="personal_statement" [(ngModel)]="application.personal_statement" style="resize: none; height: 150px;"></textarea>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="employment_status" class="form-label">Are you currently working?</label>
+                    <select type="text" class="form-control" [(ngModel)]="application.employment_status"
+                    name="employment_status">
+                        <option value="Y">YES</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="employment_industry" class="form-label">Describe the kind of work you do.</label>
+                    <input type="text" class="form-control" [(ngModel)]="application.employment_industry" 
+                    name="employment_industry" />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="employment_duration" class="form-label">How many years have you been at your current job?</label>
+                    <input type="text" class="form-control" [(ngModel)]="application.employment_duration" 
+                    name="employment_duration" />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="yearly_income" class="form-label">About how much money do you make in a year?</label>
+                    <input type="number" class="form-control" [(ngModel)]="application.yearly_income" 
+                    name="yearly_income" />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="rental_history_duration" class="form-label">How many years have you been a renter?</label>
+                    <input type="number" class="form-control" [(ngModel)]="application.rental_history_duration" 
+                    name="rental_history_duration" />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="rental_payment_amount" class="form-label">How much money do you pay each month for rent?</label>
+                    <input type="number" class="form-control" [(ngModel)]="application.rental_payment_amount" 
+                    name="rental_payment_amount" />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="rental_late_payments" class="form-label">Have you ever had a late rental payment?</label>
+                    <select type="text" class="form-control" [(ngModel)]="application.rental_late_payments" name="rental_late_payments">
+                        <option value="Y">YES</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-info" (click)="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
